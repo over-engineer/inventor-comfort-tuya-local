@@ -1,0 +1,200 @@
+name: Inventor Comfort
+entities:
+  - entity: humidifier
+    class: dehumidifier
+    dps:
+      - id: 1
+        type: boolean
+        name: switch
+      - id: 3
+        type: string
+        name: humidity
+        range:
+          min: 35
+          max: 80
+        mapping:
+          - dps_val: "35"
+            value: 35
+            step: 5
+          - dps_val: "40"
+            value: 40
+            step: 5
+          - dps_val: "45"
+            value: 45
+            step: 5
+          - dps_val: "50"
+            value: 50
+            step: 5
+          - dps_val: "55"
+            value: 55
+            step: 5
+          - dps_val: "60"
+            value: 60
+            step: 5
+          - dps_val: "65"
+            value: 65
+            step: 5
+          - dps_val: "70"
+            value: 70
+            step: 5
+          - dps_val: "75"
+            value: 75
+            step: 5
+          - dps_val: "80"
+            value: 80
+            step: 5
+      - id: 6
+        type: integer
+        name: current_humidity
+  - entity: fan
+    dps:
+      - id: 1
+        type: boolean
+        name: switch
+      - id: 8
+        type: boolean
+        name: oscillate
+  - entity: select
+    name: Fan speed
+    icon: mdi:fan
+    dps:
+      - id: 4
+        type: string
+        name: option
+        mapping:
+          - dps_val: low
+            value: Low
+          - dps_val: mid
+            value: Medium
+          - dps_val: high
+            value: High
+  - entity: select
+    name: Mode
+    dps:
+      - id: 5
+        type: string
+        name: option
+        mapping:
+          - dps_val: manual_dehumidify
+            value: Manual
+          - dps_val: smd
+            value: Smart Dehumidification
+          - dps_val: dry_clothes
+            value: Clothes Dry
+          - dps_val: sleep_mode
+            value: Sleep Mode
+  - entity: select
+    name: Operation
+    dps:
+      - id: 105
+        type: string
+        name: option
+        mapping:
+          - dps_val: dehum30_air
+            value: Dehumidifier
+          - dps_val: airpurify
+            value: Air Purifier
+          - dps_val: dehum_air
+            value: Dehumidifier & Air Purifier
+  - entity: switch
+    name: Auto Louver Swing
+    dps:
+      - id: 8
+        type: boolean
+        name: switch
+  - entity: switch
+    translation_key: ionizer
+    category: config
+    dps:
+      - id: 10
+        type: boolean
+        name: switch
+  - entity: switch
+    name: UV
+    category: config
+    dps:
+      - id: 13
+        type: boolean
+        name: switch
+  - entity: select
+    name: Light
+    icon: mdi:lamp
+    category: config
+    dps:
+      - id: 104
+        type: string
+        name: option
+        mapping:
+          - dps_val: "1"
+            value: Air humidity indication off
+          - dps_val: "2"
+            value: All indications off
+          - dps_val: "3"
+            value: All indications on
+  - entity: switch
+    name: Mute Device Sounds
+    icon: mdi:volume-off
+    category: config
+    dps:
+      - id: 109
+        type: boolean
+        name: switch
+  - entity: lock
+    translation_key: child_lock
+    category: config
+    dps:
+      - id: 16
+        type: boolean
+        name: lock
+  - entity: select
+    translation_key: timer
+    category: config
+    dps:
+      - id: 17
+        type: string
+        name: option
+        mapping:
+          - dps_val: cancel
+            value: cancel
+          - dps_val: "1h"
+            value: "1h"
+          - dps_val: "2h"
+            value: "2h"
+          - dps_val: "3h"
+            value: "3h"
+          - dps_val: "4h"
+            value: "4h"
+          - dps_val: "5h"
+            value: "5h"
+          - dps_val: "6h"
+            value: "6h"
+          - dps_val: "7h"
+            value: "7h"
+          - dps_val: "8h"
+            value: "8h"
+  - entity: binary_sensor
+    class: problem
+    category: diagnostic
+    dps:
+      - id: 19
+        type: bitfield
+        name: sensor
+        mapping:
+          - dps_val: 0
+            value: false
+          - dps_val: 16
+            value: false
+          - value: true
+      - id: 19
+        type: bitfield
+        name: fault_code
+  - entity: binary_sensor
+    translation_key: tank_full
+    dps:
+      - id: 19
+        type: bitfield
+        name: sensor
+        mapping:
+          - dps_val: 16
+            value: true
+          - value: false
